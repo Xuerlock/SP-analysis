@@ -3,8 +3,22 @@
 
 #fastqc L1EGA140171--SP_C1.R1.raw.fastq L1EGA140171--SP_C1.R2.raw.fastq
 
-
+##S.pombe FLO-DUT sample mapping
 hisat2-build sp-ref-GCF_000002945.1_ASM294v2_genomic.fna sp-ref-GCF_000002945.1_ASM294v2_genomic
 hisat2 -x sp-ref-GCF_000002945.1_ASM294v2_genomic -1 sample.1.fastq -2 sample.2.fastq -S SP_C1_output.sam
+## detail:
+hisat2 -x sp-ref-GCF_000002945.1_ASM294v2_genomic -1 L1EGA140171--SP_C2.R1.raw.fastq -2 L1EGA140171--SP_C2.R2.raw.fastq -S SP_C2_output.sam
 
 
+
+
+#S.pombe 972h sample mapping
+hisat2 -x sp-ref-GCF_000002945.1_ASM294v2_genomic -U sample.fastq -S output.sam
+## detail:
+hisat2 -x sp-ref-GCF_000002945.1_ASM294v2_genomic -U SRR10192868.fastq -S SP_ref1_output.sam
+hisat2 -x sp-ref-GCF_000002945.1_ASM294v2_genomic -U SRR10192869.fastq -S SP_ref2_output.sam
+hisat2 -x sp-ref-GCF_000002945.1_ASM294v2_genomic -U SRR10192870.fastq -S SP_ref3_output.sam
+
+
+# featureCounts from the bam file
+featureCounts -a annotation.gtf -o counts.txt sample_output.bam
