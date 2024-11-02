@@ -1,0 +1,10 @@
+# S.pombe 972h- sample information: SRR10192868, SRR10192869, SRR10192870
+# S.pombe FLO-DUT sample information: L1EGA140171--SP_C1.R1.fastq, L1EGA140171--SP_C1.R2.fastq, 
+
+#fastqc L1EGA140171--SP_C1.R1.raw.fastq L1EGA140171--SP_C1.R2.raw.fastq
+
+
+hisat2-build sp-ref-GCF_000002945.1_ASM294v2_genomic.fna sp-ref-GCF_000002945.1_ASM294v2_genomic
+hisat2 -x sp-ref-GCF_000002945.1_ASM294v2_genomic -1 sample.1.fastq -2 sample.2.fastq -S SP_C1_output.sam
+
+
