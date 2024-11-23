@@ -21,4 +21,4 @@ hisat2 -x sp-ref-GCF_000002945.1_ASM294v2_genomic -U SRR10192870.fastq -S SP_ref
 
 
 # featureCounts from the bam file
-featureCounts -a annotation.gtf -o counts.txt sample_output.bam
+featureCounts -a annotation.gtf -o counts.txt -M -O sample_output.sam
